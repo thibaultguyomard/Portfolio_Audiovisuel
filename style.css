@@ -1,0 +1,103 @@
+:root {
+    --bg-color: #0f1113; /* Gris très foncé presque noir */
+    --card-bg: #1a1d21;
+    --accent-color: #00e5ff; /* Bleu cyan "électrique" */
+    --text-color: #e0e0e0;
+    --text-dim: #a0a0a0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    align-items: center;
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 2rem; }
+nav a { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--accent-color); }
+
+/* Hero Section */
+.hero {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+h1 { font-size: 3rem; margin-bottom: 1rem; }
+.accent { color: var(--accent-color); }
+.hero p { font-family: 'JetBrains Mono', monospace; color: var(--text-dim); }
+
+/* Grille de Projets */
+.section-title {
+    padding: 0 5%;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-color);
+    margin-left: 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 5% 4rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover { transform: translateY(-5px); }
+
+/* Fix pour Vidéo Responsive */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16/9 */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.project-info { padding: 1.5rem; }
+.role { color: var(--accent-color); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+.desc { font-size: 0.9rem; margin: 1rem 0; color: var(--text-dim); }
+
+.tags span {
+    background: #2a2e35;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-right: 5px;
+}
+
+/* Matériel */
+#materiel { padding: 4rem 5%; background: #14171a; }
+.gear-list ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.gear-list li { font-size: 0.9rem; color: var(--text-dim); }
+.gear-list strong { color: var(--text-color); display: block; }
+
+footer { text-align: center; padding: 4rem; color: var(--text-dim); font-size: 0.8rem; }
+footer a { color: var(--accent-color); }
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .grid { grid-template-columns: 1fr; }
+}
